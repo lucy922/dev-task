@@ -13,46 +13,49 @@ function Billing() {
     <div className="container">
       <div className="card">
         <form>
-          <div>
-            <div className="form-input">
-              <div className="label">
-                <label>Name of card</label>
-                <span className="asterisk">*</span>
+          {buttonText === "Next" ? (
+            <div>
+              <div>
+                <div className="form-input">
+                  <div className="label">
+                    <label>Name of card</label>
+                    <span className="asterisk">*</span>
+                  </div>
+                  <input type="text" placeholder="Ahmed singh" />
+                </div>
+                <div className="form-input">
+                  <div className="label">
+                    <label>Card type</label>
+                    <span className="asterisk">*</span>
+                  </div>
+                  <input type="text" placeholder="Enter your name" />
+                </div>
               </div>
-              <input type="text" placeholder="Ahmed singh" />
-            </div>
-            <div className="form-input">
-              <div className="label">
-                <label>Card type</label>
-                <span className="asterisk">*</span>
+              <div className="grid-container2">
+                <div className="form-input input">
+                  <div className="label">
+                    <label>Card details</label>
+                    <span className="asterisk">*</span>
+                  </div>
+                  <input type="text" placeholder="000 222 444 333" />
+                </div>
+                <div className="form-input">
+                  <div className="label">
+                    <label>Expiry date</label>
+                    <span className="asterisk">*</span>
+                  </div>
+                  <input type="text" placeholder="mm/yy" />
+                </div>
+                <div className="form-input">
+                  <div className="label">
+                    <label>CVV</label>
+                    <span className="asterisk">*</span>
+                  </div>
+                  <input type="text" placeholder="123" />
+                </div>
               </div>
-              <input type="text" placeholder="Enter your name" />
             </div>
-          </div>
-          <div className="grid-container2">
-            <div className="form-input input">
-              <div className="label">
-                <label>Card details</label>
-                <span className="asterisk">*</span>
-              </div>
-              <input type="text" placeholder="000 222 444 333" />
-            </div>
-            <div className="form-input">
-              <div className="label">
-                <label>Expiry date</label>
-                <span className="asterisk">*</span>
-              </div>
-              <input type="text" placeholder="mm/yy" />
-            </div>
-            <div className="form-input">
-              <div className="label">
-                <label>CVV</label>
-                <span className="asterisk">*</span>
-              </div>
-              <input type="text" placeholder="123" />
-            </div>
-          </div>
-          {buttonText === "Pay" && (
+          ) : (
             <div className="item-card">
               <div className="card-header">
                 <div>Item Name</div>
@@ -60,7 +63,6 @@ function Billing() {
                   <span>&#8358;</span> Price
                 </div>
               </div>
-
               <div className="card-container">
                 <div className="item-info">
                   <div className="card-info">
@@ -74,7 +76,6 @@ function Billing() {
                     <span>0.00</span>
                   </div>
                 </div>
-
                 <div className="total-info">
                   <div className="total-price">
                     <span className="total">Total</span>

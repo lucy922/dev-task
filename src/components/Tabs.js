@@ -3,7 +3,7 @@ import "./styles/PersonalInfo.css";
 import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 import BillingInfo from "./BillingInfo";
-import ConfirmPayment from "./ConfirmPayment";
+import Modal from "./Modal";
 
 function Navbar() {
   const [activeTab, setActiveTab] = useState(1);
@@ -40,7 +40,7 @@ function Navbar() {
         </nav>
         {activeTab === 1 && <PersonalInfo />}
         {activeTab === 2 && <BillingInfo />}
-        {activeTab === 3 && <ConfirmPayment />}
+        {activeTab === 3 && <Modal />}
       </div>
     </div>
   );
