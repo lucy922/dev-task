@@ -1,0 +1,31 @@
+.link {
+  width: 150px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #4E598C;
+  line-height: 30px;
+  font-size: 15px;
+}
+
+
+.paragrah {
+  color: #817E9E;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 95%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.grid-container1 {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 15px;
+}
