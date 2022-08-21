@@ -1,17 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "./styles/Button.css";
 
-function Button() {
+const styles = ["btn--primary", "btn--secondary"];
+const sizes = ["btn--medium", "btn--large"];
+
+const Button = ({ children, type, onClick, buttonStyle, buttonSize }) => {
+  const checkButtonStyle = styles.includes(buttonStyle)
+    ? buttonStyle
+    : styles[0];
+
+  const checkButtonSize = sizes.includes(buttonSize) ? buttonSize : sizes[0];
+
   return (
-    <div className="btn-links">
-      <Link to="Billing.js">
-        <button className="btn">Next</button>
-      </Link>
-      <Link to="/" className="link">
-        Cancel Payment
-      </Link>
+    <div>
+      <button
+        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+        onClick={onClick}
+        type={type}
+      >
+        {children}
+      </button>
     </div>
   );
-}
+};
 
 export default Button;

@@ -1,0 +1,28 @@
+.btn {
+  font-weight: 700;
+  cursor: pointer;
+  width: 170px;
+  border: none;
+  outline: none;
+}
+
+.btn--primary {
+  background: linear-gradient(180deg, #F2C94C 0%, #F2994A 100%);
+  color: #fdfdfd;
+  border-radius: 10px;
+}
+
+.btn--secondary {
+  color: #4E598C;
+  background-color: #ffff;
+}
+
+.btn--medium {
+  padding: 10px 0 10px 0;
+  font-size: 18px;
+}
+
+.btn--large {
+  padding: 14px 0 14px 0;
+  font-size: 20px;
+}

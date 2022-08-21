@@ -29,3 +29,7 @@ select {
   grid-template-columns: 60% 40%;
   gap: 15px;
 }
+
+.form-input {
+  padding-bottom: 25px;
+}

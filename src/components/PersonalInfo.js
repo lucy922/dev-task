@@ -7,13 +7,13 @@ function PersonalInfo() {
       <div className="card">
         <form className="form">
           <div>
-            <div className="input">
+            <div className="form-input">
               <div className="label">
                 <label>Name</label>
               </div>
               <input type="text" placeholder="Enter your name" />
             </div>
-            <div className="input">
+            <div className="form-input">
               <div className="label">
                 <label>
                   Email Address<span className="asterisk">*</span>
@@ -24,13 +24,13 @@ function PersonalInfo() {
               </p>
               <input type="text" placeholder="Enter your Email" />
             </div>
-            <div className="input">
+            <div className="form-input">
               <div className="label">
                 <label>Address 1</label>
               </div>
               <input type="text" placeholder="Enter your address" />
             </div>
-            <div className="input">
+            <div className="form-input">
               <div className="label">
                 <label>Address 2</label>
               </div>
@@ -39,13 +39,13 @@ function PersonalInfo() {
           </div>
 
           <div className="grid-container1">
-            <div className="input">
+            <div className="form-input">
               <div className="label">
                 <label>Local government</label>
               </div>
               <input type="text" placeholder="Enter your L.G" />
             </div>
-            <div className="input">
+            <div className="form-input">
               <div className="label">
                 <label>State</label>
               </div>
@@ -61,7 +61,22 @@ function PersonalInfo() {
               </div>
             </div>
           </div>
-          <Button />
+          <div className="btn-links">
+            <Button
+              type="button"
+              buttonStyle="btn--primary"
+              buttonSize="btn--medium"
+            >
+              Next
+            </Button>
+            <Button
+              type="button"
+              buttonStyle="btn--secondary"
+              buttonSize="btn--medium"
+            >
+              Cancel Payment
+            </Button>
+          </div>
         </form>
       </div>
     </div>

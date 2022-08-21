@@ -1,12 +1,7 @@
 .grid-container2 {
-  display: grid;
-  grid-template-columns: 50% 25% 25%;
+  display: flex;
+  justify-content: space-between;
   gap: 10px;
-}
-
-.item-card {
-  box-shadow: 0px 10px 15px rgba(33, 30, 67, 0.08);
-  border-radius: 10px;
 }
 
 .card-header {
@@ -16,33 +11,43 @@
   background-color: #2F80ED;
   border-radius: 16px 10px 0px 0px;
   color: #ffffff;
-  padding: 20px;
-  line-height: 34px;
+  padding: 20px 40px 20px 40px;
   font-weight: 700;
   font-size: 18px;
 }
 
+.card-container {
+  padding: 0px 40px 0px 40px;
+}
+
 .card-info {
-  margin-top: 10px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   font-weight: 400;
   font-size: 18px;
-  padding: 20px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .item-name {
   color: #4E598C;
 }
 
-.item {
-  border-bottom: 1px solid #cccc;
-  padding: 10px;
+.item-card {
+  box-shadow: 0px 10px 15px rgba(33, 30, 67, 0.08);
+  border-radius: 10px;
+  padding-bottom: 20px;
 }
 
-.total {
+.item-info {
+  border-bottom: 1px solid #cccc;
+  padding-bottom: 10px;
+}
+
+.total-info {
   color: #817E9E;
+  padding: 20px;
 }
 
 .price {
@@ -62,5 +67,9 @@
 }
 
 .total-wrap {
-  padding: 20px;
+  padding: 0px 40px 0px 40px;
+}
+
+.input {
+  width: 400px;
 }
