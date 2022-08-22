@@ -3,17 +3,8 @@ import "../styles/Input.css";
 const styles = ["input--primary"];
 const sizes = ["input--medium"];
 
-function Input({
-  type,
-  placeholder,
-  name,
-  onChange,
-  value,
-  inputStyle,
-  inputSize,
-}) {
+function Input({ type, placeholder, name, onChange, value, inputStyle }) {
   const checkInputStyle = styles.includes(inputStyle) ? inputStyle : styles[0];
-  const checkInputSize = sizes.includes(inputSize) ? inputSize : sizes[0];
 
   return (
     <div>
@@ -23,7 +14,7 @@ function Input({
         name={name}
         onChange={onChange}
         value={value}
-        className={`${checkInputStyle} ${checkInputSize}`}
+        className={`${checkInputStyle}`}
       />
     </div>
   );
