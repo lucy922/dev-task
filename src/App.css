@@ -1,6 +1,9 @@
 .App {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  background-image: url("./assets/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 880px;
 }
 
 .asterisk {
@@ -10,12 +13,18 @@
 .card {
   width: 100%;
   max-width: 500px;
-  margin-top: 30px;
+  margin-top: 180px;
 }
 
 .container {
   display: flex;
   justify-content: center;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .form-input {
@@ -36,17 +45,30 @@ input {
   font-weight: 700;
 }
 
-ul.nav-links li.active {
-  color: #F2994A;
+ul.nav-links li {
   font-weight: 700;
   font-size: 18px;
-  line-height: 34px;
+  color: #cccc;
+  line-height: 20px;
+  padding-bottom: 10px;
+}
+
+ul.nav-links li.active {
+  color: #F2994A;
   border-bottom: 6px solid #F2994A;
-  margin-top: 10px;
+
+}
+
+.nav-links {
+  margin-top: 30px;
 }
 
 .btn-links {
   display: grid;
   grid-template-columns: auto auto;
   margin-top: 20px;
+}
+
+.form {
+  margin-top: 60px;
 }

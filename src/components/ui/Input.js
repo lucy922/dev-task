@@ -1,7 +1,5 @@
-function Input () {
-  return(
-
-  )
+function Input() {
+  return <div></div>;
 }
 
-export default Input
+export default Input;
