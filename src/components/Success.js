@@ -9,7 +9,9 @@ function Modal() {
         <img src={image} alt="thumbnail" />
       </div>
       <h3>Complete your purchase</h3>
-      <p>Please check your email for details concerning this transaction</p>
+      <p className="paragraph">
+        Please check your email for details concerning this transaction
+      </p>
       <div className="link">
         <Link to="/">Return Home</Link>
       </div>

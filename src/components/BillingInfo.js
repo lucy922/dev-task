@@ -68,6 +68,8 @@ function BillingInfo() {
                       onChange={handleChange}
                       value={values.cardName}
                       placeholder="Ahmed singh"
+                      inputStyle="input--primary"
+                      inputSize="input--medium"
                     />
 
                     {errors.cardName && touched.cardName ? (
@@ -85,6 +87,8 @@ function BillingInfo() {
                       onChange={handleChange}
                       value={values.cardType}
                       placeholder="Enter your name"
+                      inputStyle="input--primary"
+                      inputSize="input--medium"
                     />
                     {errors.cardType && touched.cardType ? (
                       <div className="error">{errors.cardType}</div>
@@ -92,7 +96,7 @@ function BillingInfo() {
                   </div>
                 </div>
                 <div className="grid-container2">
-                  <div className="form-input">
+                  <div className="form-input input">
                     <div className="label">
                       <label>Card details</label>
                       <span className="asterisk">*</span>
@@ -103,6 +107,8 @@ function BillingInfo() {
                       onChange={handleChange}
                       value={values.cardDetails}
                       placeholder="000 222 444 333"
+                      inputStyle="input--primary"
+                      inputSize="input--medium"
                     />
                     {errors.cardDetails && touched.cardDetails ? (
                       <div className="error">{errors.cardDetails}</div>
@@ -119,6 +125,8 @@ function BillingInfo() {
                       onChange={handleChange}
                       value={values.expiryDate}
                       placeholder="mm/yy"
+                      inputStyle="input--primary"
+                      inputSize="input--medium"
                     />
                     {errors.expiryDate && touched.expiryDate ? (
                       <div className="error">{errors.expiryDate}</div>
@@ -135,6 +143,8 @@ function BillingInfo() {
                       onChange={handleChange}
                       value={values.cvv}
                       placeholder="123"
+                      inputStyle="input--primary"
+                      inputSize="input--medium"
                     />
                     {errors.cvv && touched.cvv ? (
                       <div className="error">{errors.cvv}</div>

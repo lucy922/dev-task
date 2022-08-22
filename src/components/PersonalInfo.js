@@ -27,7 +27,12 @@ function PersonalInfo(props) {
                 <div className="label">
                   <label>Name</label>
                 </div>
-                <Input type="text" placeholder="Enter your name" />
+                <Input
+                  type="text"
+                  placeholder="Enter your name"
+                  inputStyle="input--primary"
+                  inputSize="input--medium"
+                />
               </div>
               <div className="form-input">
                 <div className="label">
@@ -44,6 +49,8 @@ function PersonalInfo(props) {
                   onChange={handleChange}
                   value={values.email}
                   placeholder="Enter your Email"
+                  inputStyle="input--primary"
+                  inputSize="input--medium"
                 />
                 {errors.email && touched.email ? (
                   <div className="error">{errors.email}</div>
@@ -59,7 +66,12 @@ function PersonalInfo(props) {
                 <div className="label">
                   <label>Address 2</label>
                 </div>
-                <Input type="text" placeholder="Enter your address" />
+                <Input
+                  type="text"
+                  placeholder="Enter your address"
+                  inputStyle="input--primary"
+                  inputSize="input--medium"
+                />
               </div>
             </div>
 
@@ -68,7 +80,12 @@ function PersonalInfo(props) {
                 <div className="label">
                   <label>Local government</label>
                 </div>
-                <Input type="text" placeholder="Enter your L.G" />
+                <Input
+                  type="text"
+                  placeholder="Enter your L.G"
+                  inputStyle="input--primary"
+                  inputSize="input--medium"
+                />
               </div>
               <div className="form-input">
                 <div className="label">

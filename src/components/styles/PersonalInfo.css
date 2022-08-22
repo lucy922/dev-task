@@ -12,6 +12,7 @@
   font-size: 16px;
   line-height: 24px;
   font-style: normal;
+  padding-bottom: 8px;
 }
 
 select {
@@ -30,8 +31,4 @@ select {
   display: grid;
   grid-template-columns: 60% 40%;
   gap: 15px;
-}
-
-.form-input {
-  padding-bottom: 25px;
 }
