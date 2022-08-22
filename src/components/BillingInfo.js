@@ -4,44 +4,56 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { Formik } from "formik";
+import parse from "date-fns/parse";
 
 const formSchema = yup.object().shape({
   cardName: yup.string().required("This field is required"),
   cardType: yup.string().required("This field is required"),
   cardDetails: yup.string().required("This field is required"),
-  expiryDate: yup.date().required("This field is required"),
-  cvv: yup.number().required("This field is required").positive(),
+  expiryDate: yup
+    .date()
+    .transform(function (value, originalValue) {
+      if (this.isType(value)) {
+        return value;
+      }
+      const result = parse(originalValue, "mm/yy", new Date());
+      return result;
+    })
+    .typeError("please enter a valid date")
+    .required("This field is required"),
+  cvv: yup.number().required("This field is required").min(3).max(3),
 });
 
 function BillingInfo() {
-  const [buttonText, setButtonText] = useState("Next");
+  const [checkTab, setCheckTab] = useState("Next");
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setButtonText("Pay");
-    if (buttonText === "Pay") {
+    setCheckTab("Pay");
+    if (checkTab === "Pay") {
       navigate("/success");
     }
   };
 
   return (
     <div className="form">
-      <Formik
-        initialValues={{
-          cardName: "",
-          cardType: "",
-          cardDetails: "",
-          expiryDate: "",
-          cvv: "",
-        }}
-        validationSchema={formSchema}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        {({ errors, touched, handleSubmit, values, handleChange }) => (
-          <form onSubmit={handleSubmit}>
-            {buttonText === "Next" ? (
+      {checkTab === "Next" ? (
+        <Formik
+          initialValues={{
+            cardName: "",
+            cardType: "",
+            cardDetails: "",
+            expiryDate: "",
+            cvv: "",
+          }}
+          validationSchema={formSchema}
+          onSubmit={(values) => {
+            console.log(values);
+            setCheckTab("Pay");
+          }}
+        >
+          {({ errors, touched, handleSubmit, values, handleChange }) => (
+            <form onSubmit={handleSubmit}>
               <div>
                 <div>
                   <div className="form-input">
@@ -51,7 +63,7 @@ function BillingInfo() {
                     </div>
                     <input
                       type="text"
-                      name="name"
+                      name="cardName"
                       onChange={handleChange}
                       value={values.cardName}
                       placeholder="Ahmed singh"
@@ -67,7 +79,7 @@ function BillingInfo() {
                     </div>
                     <input
                       type="text"
-                      name="card-type"
+                      name="cardType"
                       onChange={handleChange}
                       value={values.cardType}
                       placeholder="Enter your name"
@@ -85,7 +97,7 @@ function BillingInfo() {
                     </div>
                     <input
                       type="text"
-                      name="card-details"
+                      name="cardDetails"
                       onChange={handleChange}
                       value={values.cardDetails}
                       placeholder="000 222 444 333"
@@ -101,7 +113,7 @@ function BillingInfo() {
                     </div>
                     <input
                       type="text"
-                      name="expiry-date"
+                      name="expiryDate"
                       onChange={handleChange}
                       value={values.expiryDate}
                       placeholder="mm/yy"
@@ -127,58 +139,77 @@ function BillingInfo() {
                     ) : null}
                   </div>
                 </div>
-              </div>
-            ) : (
-              <div className="item-card">
-                <div className="card-header">
-                  <div>Item Name</div>
-                  <div>
-                    <span>&#8358;</span> Price
-                  </div>
-                </div>
-                <div className="card-container">
-                  <div className="item-info">
-                    <div className="card-info">
-                      <span className="item-name">
-                        Date science and reuseability
-                      </span>
-                      <span>50,000.00</span>
-                    </div>
-                    <div className="card-info">
-                      <span className="item-name">Shipping</span>
-                      <span>0.00</span>
-                    </div>
-                  </div>
-                  <div className="total-info">
-                    <div className="total-price">
-                      <span className="total">Total</span>
-                      <span className="price">50,000.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
 
-            <div className="btn-links">
-              <Button
-                type="button"
-                buttonStyle="btn--primary"
-                buttonSize="btn--medium"
-                onClick={handleClick}
-              >
-                {buttonText}
-              </Button>
-              <Button
-                type="button"
-                buttonStyle="btn--secondary"
-                buttonSize="btn--medium"
-              >
-                Cancel Payment
-              </Button>
+                <div className="btn-links">
+                  <Button
+                    type="button"
+                    buttonStyle="btn--primary"
+                    buttonSize="btn--medium"
+                    onClick={handleSubmit}
+                  >
+                    {checkTab}
+                  </Button>
+                  <Button
+                    type="button"
+                    buttonStyle="btn--secondary"
+                    buttonSize="btn--medium"
+                  >
+                    Cancel Payment
+                  </Button>
+                </div>
+              </div>
+            </form>
+          )}
+        </Formik>
+      ) : (
+        <>
+          <div className="item-card">
+            <div className="card-header">
+              <div>Item Name</div>
+              <div>
+                <span>&#8358;</span> Price
+              </div>
             </div>
-          </form>
-        )}
-      </Formik>
+            <div className="card-container">
+              <div className="item-info">
+                <div className="card-info">
+                  <span className="item-name">
+                    Date science and reuseability
+                  </span>
+                  <span>50,000.00</span>
+                </div>
+                <div className="card-info">
+                  <span className="item-name">Shipping</span>
+                  <span>0.00</span>
+                </div>
+              </div>
+              <div className="total-info">
+                <div className="total-price">
+                  <span className="total">Total</span>
+                  <span className="price">50,000.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="btn-links">
+            <Button
+              type="button"
+              buttonStyle="btn--primary"
+              buttonSize="btn--medium"
+              onClick={handleClick}
+            >
+              {checkTab}
+            </Button>
+            <Button
+              type="button"
+              buttonStyle="btn--secondary"
+              buttonSize="btn--medium"
+            >
+              Cancel Payment
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

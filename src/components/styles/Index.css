@@ -10,10 +10,11 @@
 }
 
 h3 {
-  font-weight: 700;
-  font-size: 30px;
+  font-style: bold;
+  font-size: 36px;
   line-height: 50px;
   color: #4E598C;
+  line-height: 50px;
 }
 
 nav {

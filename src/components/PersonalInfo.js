@@ -84,7 +84,7 @@ function PersonalInfo(props) {
                 </div>
                 <div className="select">
                   <select>
-                    <option>Enter your state</option>
+                    <option className="placeholder">Enter your state</option>
                     <option className="select-items">Lagos state</option>{" "}
                     <option className="select-items">Cross river state</option>
                     <option className="select-items">Akwa ibom state</option>
