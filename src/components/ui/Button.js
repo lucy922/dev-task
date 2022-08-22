@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/Button.css";
+import "../styles/Button.css";
 
 const styles = ["btn--primary", "btn--secondary"];
 const sizes = ["btn--medium", "btn--large"];

@@ -1,10 +1,11 @@
-import Button from "./Button";
+import Button from "./ui/Button";
 import "./styles/BillingInfo.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { Formik } from "formik";
 import parse from "date-fns/parse";
+import Input from "./ui/Input";
 
 const formSchema = yup.object().shape({
   cardName: yup.string().required("This field is required"),
@@ -21,7 +22,7 @@ const formSchema = yup.object().shape({
     })
     .typeError("please enter a valid date")
     .required("This field is required"),
-  cvv: yup.number().required("This field is required").min(3).max(3),
+  cvv: yup.number().required("This field is required"),
 });
 
 function BillingInfo() {
@@ -61,13 +62,14 @@ function BillingInfo() {
                       <label>Name of card</label>
                       <span className="asterisk">*</span>
                     </div>
-                    <input
+                    <Input
                       type="text"
                       name="cardName"
                       onChange={handleChange}
                       value={values.cardName}
                       placeholder="Ahmed singh"
                     />
+
                     {errors.cardName && touched.cardName ? (
                       <div className="error">{errors.cardName}</div>
                     ) : null}
@@ -77,7 +79,7 @@ function BillingInfo() {
                       <label>Card type</label>
                       <span className="asterisk">*</span>
                     </div>
-                    <input
+                    <Input
                       type="text"
                       name="cardType"
                       onChange={handleChange}
@@ -90,12 +92,12 @@ function BillingInfo() {
                   </div>
                 </div>
                 <div className="grid-container2">
-                  <div className="form-input input">
+                  <div className="form-input">
                     <div className="label">
                       <label>Card details</label>
                       <span className="asterisk">*</span>
                     </div>
-                    <input
+                    <Input
                       type="text"
                       name="cardDetails"
                       onChange={handleChange}
@@ -111,7 +113,7 @@ function BillingInfo() {
                       <label>Expiry date</label>
                       <span className="asterisk">*</span>
                     </div>
-                    <input
+                    <Input
                       type="text"
                       name="expiryDate"
                       onChange={handleChange}
@@ -127,7 +129,7 @@ function BillingInfo() {
                       <label>CVV</label>
                       <span className="asterisk">*</span>
                     </div>
-                    <input
+                    <Input
                       type="text"
                       name="cvv"
                       onChange={handleChange}

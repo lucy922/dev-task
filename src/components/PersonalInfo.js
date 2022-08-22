@@ -1,22 +1,14 @@
 import "./styles/PersonalInfo.css";
-import Button from "./Button";
+import Button from "./ui/Button";
 import * as yup from "yup";
 import { Formik } from "formik";
-import { useNavigate } from "react-router-dom";
-import BillingInfo from "./BillingInfo";
+import Input from "./ui/Input";
 
 const formSchema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
-
-  // CardName: yup.string().required(),
-  // cardType: yup.string().required(),
-  // cardDetails: yup.string().required(),
-  // expiryDate: yup.date().required(),
-  // cvv: yup.number().required().positive(),
 });
 
 function PersonalInfo(props) {
-  // const navigate = useNavigate();
   return (
     <div className="form">
       <Formik
@@ -35,7 +27,7 @@ function PersonalInfo(props) {
                 <div className="label">
                   <label>Name</label>
                 </div>
-                <input type="text" placeholder="Enter your name" />
+                <Input type="text" placeholder="Enter your name" />
               </div>
               <div className="form-input">
                 <div className="label">
@@ -46,7 +38,7 @@ function PersonalInfo(props) {
                 <p className="paragrah">
                   The purchase receipt will be sent to this address
                 </p>
-                <input
+                <Input
                   type="email"
                   name="email"
                   onChange={handleChange}
@@ -61,13 +53,13 @@ function PersonalInfo(props) {
                 <div className="label">
                   <label>Address 1</label>
                 </div>
-                <input type="text" placeholder="Enter your address" />
+                <Input type="text" placeholder="Enter your address" />
               </div>
               <div className="form-input">
                 <div className="label">
                   <label>Address 2</label>
                 </div>
-                <input type="text" placeholder="Enter your address" />
+                <Input type="text" placeholder="Enter your address" />
               </div>
             </div>
 
@@ -76,7 +68,7 @@ function PersonalInfo(props) {
                 <div className="label">
                   <label>Local government</label>
                 </div>
-                <input type="text" placeholder="Enter your L.G" />
+                <Input type="text" placeholder="Enter your L.G" />
               </div>
               <div className="form-input">
                 <div className="label">
