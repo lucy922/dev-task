@@ -1,7 +1,6 @@
 import "../styles/Input.css";
 
 const styles = ["input--primary"];
-const sizes = ["input--medium"];
 
 function Input({ type, placeholder, name, onChange, value, inputStyle }) {
   const checkInputStyle = styles.includes(inputStyle) ? inputStyle : styles[0];
