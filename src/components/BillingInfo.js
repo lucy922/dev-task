@@ -7,22 +7,23 @@ import { Formik } from "formik";
 import parse from "date-fns/parse";
 import Input from "./ui/Input";
 
+const valid = require("card-validator");
+
 const formSchema = yup.object().shape({
   cardName: yup.string().required("This field is required"),
   cardType: yup.string().required("This field is required"),
-  cardDetails: yup.string().required("This field is required"),
-  expiryDate: yup
-    .date()
-    .transform(function (value, originalValue) {
-      if (this.isType(value)) {
-        return value;
-      }
-      const result = parse(originalValue, "mm/yy", new Date());
-      return result;
-    })
-    .typeError("please enter a valid date")
+  cardDetails: yup
+    .string()
+    .test("test number", (value) => valid.number(value).isValid)
     .required("This field is required"),
-  cvv: yup.number().required("This field is required"),
+  expiryDate: yup
+    .string()
+    .test("date number", (value) => valid.expirationDate(value).isValid)
+    .required("this field is required"),
+  cvv: yup
+    .string()
+    .test("cvv number", (value) => valid.cvv(value).isValid)
+    .required("This field is required"),
 });
 
 function BillingInfo() {
